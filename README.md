@@ -1,2 +1,0 @@
-# multiplicationtest
-Coded from scratch
