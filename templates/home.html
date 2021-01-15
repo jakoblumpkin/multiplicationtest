@@ -1,0 +1,33 @@
+{% extends 'index.html'%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% block content %}
+<section>
+    <h1>Welcome, this is a  4 question Multiplication test.</h1>
+    <div id="steps">
+        <h2>First Step: Enter your name</h2>
+        <h2>Second Step: Press 'Start test' then, you can begin</h2>
+    </div>
+    <form id="homeF" action="firstQ/" method="POST">{% csrf_token %}
+        <h3>Enter Name: </h3>
+        <input type="text" name="name" placeholder="Enter name here: ">
+        <button>Start test</button>
+    </form>
+
+</section>
+
+
+
+
+
+
+
+
+{% endblock content %}
+</body>
+</html>

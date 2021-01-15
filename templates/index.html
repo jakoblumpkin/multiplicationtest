@@ -1,0 +1,76 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Multiplication Test</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/testing.js' %}"/>
+</head>
+<body>
+    <section id="middlee">
+        <img id="navImage" src="{% static 'images/multimage.png' %}"/>
+        <ul id="navbar">
+              <li><h2> <a class="navText" href="/"> Home</a></h2></li>
+              <!--<li class="spaace"><h2><a class="navText" href="">News</a></h2></li>-->
+              <!--<li class="spaace1" ><h2><a class="navText" href="">Contact</a></h2></li>-->
+              <li class="spaace2" ><h2><a class="navText" href="">About</a></h2></li>
+         </ul>
+    </section>
+
+
+    <div id="guestionSec">
+        {% block content %}
+        <h1 class="reload">If you reload page you have to start over from the hompage</h1>
+        <h2>Good Luck! {{name}}</h2>
+        <form action="/secondQ/" method="POST">{% csrf_token %}
+            <h1>1 of 4 Questions</h1>
+            <div id="Form" >
+            <h1 class="centerText">What is 2 x 3: ?</h1>
+            <h2>A. 6</h2>
+            <h2>B. 10</h2>
+            <h2>C. 20</h2>
+            <h2>D. 0</h2>
+                <div id="answer">
+                    <h3>Enter A, B, C or D</h3>
+                    <input id="letter"  type="text" name="an" maxlength="1" size="3" placeholder="ABCD">
+                    <button id="button">Next Question</button>
+                </div>
+                <h3 id="judgeQ"></h3>
+            </div>
+        </form>
+
+        <script>
+            var inputV=document.getElementById("letter");
+            var judgeQ=document.getElementById("judgeQ");
+            document.getElementById("button").onclick=function(){
+            if(inputV.value=='a' ||
+               inputV.value=='A'){
+                judgeQ.innerHTML='Correct';
+                judgeQ.style.color="green";
+               }
+            else{
+                judgeQ.innerHTML='Incorrect';
+                judgeQ.style.color="red";
+            }
+            }
+
+        </script>
+
+
+
+
+        {% endblock content %}
+    <div>
+
+
+    </div>
+
+
+
+
+</body>
+</html>

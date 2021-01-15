@@ -1,0 +1,33 @@
+{% extends 'index.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% block content %}
+<h1 id="Final">Click Here to see Grade</h1>
+
+<!-- This is where i display the score-->
+<script>
+    document.getElementById("Final").onclick=function(){
+    if ("{{final}}"=="Congratulations you passed with a 100%" ||
+    "{{final}}"=="Congratulations you passed with a 75%"){
+    this.style.color="green";
+    this.innerHTML="{{final}}";
+    }
+
+    if ("{{final}}"=="You failed with a 25% Try Again!" ||
+    "{{final}}"=="You failed with a 50% Try Again!" ||
+    "{{final}}"=="You failed with a 0% Try Again!"){
+    this.style.color="red";
+    this.innerHTML="{{final}}";
+    }
+    }
+</script>
+{% endblock content %}
+
+
+</body>
+</html>

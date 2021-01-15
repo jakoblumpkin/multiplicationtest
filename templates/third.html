@@ -1,0 +1,45 @@
+{% extends 'index.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% block content %}
+<h1 class="reload">If you reload page you have to start over from the hompage.</h1>
+<form action="/fourthQ/" method="POST">{% csrf_token %}
+    <h1>3 of 4 Questions</h1>
+        <div id="Form" >
+            <h1 class="centerText">What is 10 x 3: ?</h1>
+            <h2>A. 6</h2>
+            <h2>B. 40</h2>
+            <h2>C. 20</h2>
+            <h2>D. 30</h2>
+                <div id="answer">
+                    <h3>Enter A, B, C or D</h3>
+                    <input id="letter" type="text" maxlength="1" size="3" name="an"placeholder="ABCD">
+                    <button id="button">Next Question</button>
+                </div>
+            <h3 id="judgeQ"></h3>
+            </div>
+        </form>
+<script>
+    var inputV=document.getElementById("letter");
+    var judgeQ=document.getElementById("judgeQ");
+         document.getElementById("button").onclick=function(){
+            if(inputV.value=='d' ||
+               inputV.value=='D'){
+                judgeQ.innerHTML='Correct';
+                judgeQ.style.color="green";
+               }
+            else{
+                judgeQ.innerHTML='Incorrect';
+                judgeQ.style.color="red";
+            }
+            }
+
+</script>
+{% endblock content %}
+</body>
+</html>
